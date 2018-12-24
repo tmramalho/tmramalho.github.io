@@ -1,0 +1,165 @@
+<html>
+<head>
+  <script src="processing.js"></script>
+</head>
+<body><h1>Processing.js</h1>
+<h2>Rays</h2>
+
+<p><canvas id="canvas1" width="200" height="200"></canvas></p>
+
+<script id="script1" type="text/javascript">
+
+function explode() {
+	for(var i = 0; i< curP; i++) {
+		e = Math.sqrt(vx[i]*vx[i]+vy[i]*vy[i]);
+		th = Math.random()*2*3.14159265;
+		vx[i] = e * Math.cos(th);
+		vy[i] = e * Math.sin(th);
+	}
+}
+
+function boom() {
+	for(var i = 0; i< curP; i++) {
+		xp[i] = mouseX;
+		yp[i] = mouseY;
+		vx[i] = (Math.random() - 0.5) * scale;
+		vy[i] = (Math.random() - 0.5) * scale;
+	}
+}
+
+function addOne() {
+	if(curP < maxP) {
+		xp[curP] = mouseX;
+		yp[curP] = mouseY;
+		vx[curP] = (Math.random() - 0.5) * scale;
+		vy[curP] = (Math.random() - 0.5) * scale;
+		col[curP] = 0xaaffffff;
+		ks[curP] = ks[curP-1] + 0.01;
+		curP++;
+	}
+}
+
+function sketchProc(processing) {
+	width = 600;
+	height = 600;
+	maxP = 100;
+	curP = 10;
+	pause = false;
+	dt = 0.1;
+	b = 0.1;
+	scale = 100;
+	xp = new Array();
+	yp = new Array();
+	vx = new Array();
+	vy = new Array();
+	ax = new Array();
+	ay = new Array();
+	ks = new Array();
+	col = new Array();
+	mx = width / 2;
+	my = height / 2;
+	
+	processing.setup = function() {
+		processing.size(width,height,processing.JAVA2D);
+		processing.background(0);
+		processing.strokeWeight(1.5);
+		
+		for(var i = 0; i< curP; i++) {
+			xp[i] = mx;
+			yp[i] = my;
+			vx[i] = (Math.random() - 0.5) * scale;
+			vy[i] = (Math.random() - 0.5) * scale;
+			ax[i] = (mx - xp[i]) - b * vx[i];
+			ay[i] = (my - yp[i]) - b * vy[i];
+			col[i] = processing.color(255,255,255);
+			ks[i] = 0.6 + 0.01*i;
+		}
+	}
+	
+	processing.draw = function() {
+		if(!pause) {
+			for(var i = 0; i< curP; i++) {
+				//setup
+				var xpn = xp[i];
+				var ypn = yp[i];
+				var xvn = vx[i];
+				var yvn = vy[i];
+				var xan = ax[i];
+				var yan = ay[i];
+				var k = ks[i];
+							
+				//velocity verlet
+				var xpn1 = xpn + xvn * dt + 0.5 * xan * dt * dt;
+				var ypn1 = ypn + yvn * dt + 0.5 * yan * dt * dt;
+				var dx = mx - xp[i];
+				var dy = my - yp[i];
+				var cx = 0; //nonlinearity
+				var cy = 0; //nonlinearity
+				var den = 1/(2 + b * dt);
+				var xvn1 = ((xan + dx * k + cx) * dt + 2 * xvn) * den;
+				var yvn1 = ((yan + dy * k + cy) * dt + 2 * yvn) * den;
+				var xan1 = (2 * k * dx + 2 * cx - xan * b * dt - 2 * b * xvn) * den;
+				var yan1 = (2 * k * dy + 2 * cy - yan * b * dt - 2 * b * yvn) * den;
+				
+				processing.stroke(col[i]);
+				//processing.line(xpn, ypn, xpn1, ypn1);
+				processing.bezier(xpn, ypn, xpn+dt*xvn, ypn+dt*yvn, 
+									xpn1-dt*xvn1, ypn1-dt*yvn1, xpn1, ypn1);
+							
+				//store
+				xp[i] = xpn1;
+				yp[i] = ypn1;
+				vx[i] = xvn1;
+				vy[i] = yvn1;
+				ax[i] = xan1;
+				ay[i] = yan1;
+			}
+		}
+	}
+	
+	processing.mousePressed = function() {
+		processing.background(0);
+	}
+	
+	processing.mouseMoved = function() {
+		mx = processing.mouseX;
+		my = processing.mouseY;
+	}
+	
+	processing.keyPressed = function() {
+		processing.println("key event detected with num: " + processing.key);
+		switch(processing.key) {
+		case 32:
+			pause = !pause;
+			break;
+		case 101://e
+			
+			break;
+		case 100://d
+			
+			break;
+		case 115://s
+			boom();
+			break;
+		case 97://a
+			explode();
+			break;
+		case 119://w
+			
+			break;
+		case 113://q
+			addOne();
+			break;
+		default:
+			break;
+		}
+	}  
+}
+
+var canvas = document.getElementById("canvas1");
+// attaching the sketchProc function to the canvas
+var p = new Processing(canvas, sketchProc);
+// p.exit(); to detach it
+</script>
+</body>
+</html>

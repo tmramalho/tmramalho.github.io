@@ -1,0 +1,31 @@
+
+
+/* ==========================================================================
+   Author's custom styles
+   ========================================================================== */
+body {
+	background-color: #444444;
+	color: #f2f2f2;
+	padding: 0px;
+	margin: 0px;
+}
+
+h1 {
+	margin-left: 30px;
+}
+
+#sketchContainer {
+	background-color: #646464;
+	padding: 20px;
+	width: 400px;
+	margin: 20px auto;
+}
+
+
+
+
+
+
+
+
+

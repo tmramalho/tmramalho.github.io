@@ -1,0 +1,27 @@
+# Permalinks
+permalink:           pretty
+
+# Setup
+title:               Tiago Ramalho
+tagline:             'Just another AI researcher'
+description:         >- # this means to ignore newlines until "baseurl:"
+                      I am a Research Scientist at Cogent Labs.
+url:                 ''
+baseurl:             ''
+paginate:            5
+twitter_username: tmramalho
+github_username:  tmramalho
+
+# About/contact
+author:
+  name:              Tiago Ramalho
+  url:               https://twitter.com/tmramalho
+  email:             tiago@nehalemlabs.net
+
+# Custom vars
+version:             1.0.0
+
+plugins: [jekyll-paginate]
+paginate: 5
+paginate_path: "page:num"
+markdown: kramdown

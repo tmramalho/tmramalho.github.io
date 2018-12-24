@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="description" content="">
+		<meta name="author" content="">
+		<link rel="shortcut icon" href="../../docs-assets/ico/favicon.png">
+
+		<title>Zeroth order</title>
+
+		<!-- Bootstrap core CSS -->
+		<link href="css/bootstrap.css" rel="stylesheet">
+
+		<!-- Custom styles for this template -->
+		<link href="css/main.css" rel="stylesheet">
+
+		<!-- Just for debugging purposes. Don't actually copy this line! -->
+		<!--[if lt IE 9]><script src="../../docs-assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+
+		<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+		<!--[if lt IE 9]>
+			<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+			<script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+	<!-- Wrap all page content here -->
+	<div id="wrap">
+
+		<!-- Begin page content -->
+		<div class="container">
+			<div class="page-header">
+				<h1>Zeroth order</h1>
+			</div>
+			<canvas id="procCanvas">
+			</canvas>
+			<form role="form" class="cPanel">
+				<div class="form-group">
+				<label for="ruleType">RuleNumber</label>
+				<input type="text" class="form-control" id="ruleType" placeholder="34">
+				</div>
+				<div class="form-group">
+				<label for="gradType">GradientPosition</label>
+				<input type="text" class="form-control" id="gradType" placeholder="50">
+				</div>
+				<div class="form-group">
+				<label for="sigType">NoisePower</label>
+				<input type="text" class="form-control" id="sigType" placeholder="0.01">
+				</div>
+				<div class="form-group">
+				<label for="thType">NumberOfNeighbors</label>
+				<input type="text" class="form-control" id="thType" placeholder="4">
+				</div>
+				<div class="checkbox">
+				<label>
+				<input type="checkbox" id="playType"> Play (be careful)
+				</label>
+				</div>
+				<button type="button" class="btn btn-default" id="stepType">Go just one step</button>
+				<button type="button" class="btn btn-default" id="fullStepType">Go 100 steps</button>
+				<button type="button" class="btn btn-default" id="resetType">Reset</button>
+			</form>
+		</div>
+	</div>
+
+
+	<!-- Bootstrap core JavaScript
+	================================================== -->
+	<!-- Placed at the end of the document so the pages load faster -->
+	<script src="js/jquery-2.0.3.min.js"></script>
+	<script src="js/processing-1.4.1.min.js"></script>
+	<script src="js/phys/zo1d.js"></script>
+	</body>
+</html>
