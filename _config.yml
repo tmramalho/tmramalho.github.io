@@ -3,10 +3,11 @@ permalink:           pretty
 
 # Setup
 title:               Tiago Ramalho
-tagline:             'Just another AI researcher'
+tagline:             'AI research in Tokyo'
 description:         >- # this means to ignore newlines until "baseurl:"
-                      I am a Research Scientist at Cogent Labs.
-url:                 ''
+                      I am currently a Research Scientist at Cogent Labs.
+                      Previously a Research Engineer at DeepMind.
+url:                 'https://tmramalho.github.io'
 baseurl:             ''
 paginate:            5
 twitter_username: tmramalho
