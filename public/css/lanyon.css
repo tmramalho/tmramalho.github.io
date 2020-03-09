@@ -41,14 +41,23 @@ body {
 }
 
 html {
-  font-family: "PT Serif", Georgia, "Times New Roman", serif;
+  font-family: 'Muli', sans-serif;
+  color: #2a2f36;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: "PT Sans", Helvetica, Arial, sans-serif;
-  font-weight: 400;
-  color: #313131;
+  font-weight: 700;
   letter-spacing: -.025rem;
+  color: #2a2f36;
+}
+
+h1 {
+  font-size: 2.5rem;
+}
+
+p {
+  margin-bottom: 2rem;
+  color: #2a2f36;
 }
 
 
@@ -102,15 +111,15 @@ h1, h2, h3, h4, h5, h6 {
 .masthead-title {
   margin-top: 0;
   margin-bottom: 0;
-  color: #505050;
+  color: #2a2f36;
 }
 .masthead-title a {
-  color: #505050;
+  color: #2a2f36;
 }
 .masthead-title small {
   font-size: 75%;
   font-weight: 400;
-  color: #c0c0c0;
+  color: #6c7a89;
   letter-spacing: 0;
 }
 
@@ -168,6 +177,9 @@ h1, h2, h3, h4, h5, h6 {
 }
 .sidebar-item {
   padding: 1rem;
+}
+.sidebar-item p {
+  color: #fff;
 }
 .sidebar-item p:last-child {
   margin-bottom: 0;
@@ -316,19 +328,29 @@ a.sidebar-nav-item:focus {
 .page-title,
 .post-title,
 .post-title a {
-  color: #303030;
+  color: #2a2f36;
 }
-.page-title,
+.page-title {
+  padding: 3rem 0rem;
+}
 .post-title {
-  margin-top: 0;
+  padding-top: 2rem;
 }
 
 /* Meta data line below post title */
 .post-date {
   display: block;
-  margin-top: -.5rem;
-  margin-bottom: 1rem;
-  color: #9a9a9a;
+  margin-top: 1rem;
+  margin-bottom: 4rem;
+  color: #6c7a89;
+}
+
+.post h1, h2, h3, h4, h5, h6 {
+  margin-bottom: 40px;
+}
+
+.post img {
+  margin: auto;
 }
 
 /* Related posts */
@@ -357,6 +379,32 @@ a.sidebar-nav-item:focus {
 }
 
 
+.card-snippet {
+  display: none;
+}
+
+.card-main {
+  border-radius: 10px;
+  padding: 45px;
+  margin-bottom: 50px;
+}
+
+.card-date {
+  color: #fff;
+  font-size: 16px;
+}
+
+.card-title {
+  display: block;
+  font-weight: 700;
+  max-width: 500px;
+  font-size: 30px;
+  color: #fff;
+  line-height: 1.5rem;
+  margin: 20px 0px;
+}
+
+
 /*
  * Pagination
  *
@@ -368,7 +416,6 @@ a.sidebar-nav-item:focus {
   overflow: hidden; /* clearfix */
   margin-left: -1rem;
   margin-right: -1rem;
-  font-family: "PT Sans", Helvetica, Arial, sans-serif;
   color: #ccc;
   text-align: center;
 }

@@ -28,21 +28,30 @@ The first approach is to map the input data to a high dimensional representation
 
 ![Representation Space](/images/2019/metalearning/rep1.png "Representation space")
 
+### Prototype Networks
 Earliest work in this branch is \[[Snell17](https://arxiv.org/abs/1703.05175)\] which creates clusters by averaging all representations in a given class in the support set and then uses a distance metric to calculate posterior class probabilities; and \[[Vinyals16](https://arxiv.org/abs/1606.04080)\] which creates a KDE estimate of the posterior class probability distribution based on the distance of the test point to its k-nearest neighbors. Performance for these methods is largely reliant on the representations created by the neural network backbone and results keep improving as bigger and deeper models are deployed.
 
 ![Representation Space](/images/2019/metalearning/rep4.png "Representation space")
 
+### Matching Networks
+
 ![Representation Space](/images/2019/metalearning/rep5.png "Representation space")
+
+### LSTM meta-learner
 
 Another approach is to find a more efficient way to adapt the parameters of a classifier than through standard gradient descent alone. Early work \[[Ravi17](https://openreview.net/pdf?id=rJY0-Kcll&source=post_page---------------------------)\] trained an LSTM to calculate the weight updates of a standard convolutional network, instead of using traditional gradient descent. The hope here is that the LSTM learns a good prior for what the weight updates should look like, given the query set.
 
 ![Representation Space](/images/2019/metalearning/rep2.png "Representation space")
+
+### MAML
 
 An idea with a very similar spirit was proposed in \[[Finn17](https://arxiv.org/abs/1703.03400)\] with MAML, one of the most popular few-shot classification algorithms currently. The authors propose training a network using two nested optimization loops: for each support/query set we have available for training, we initialize the network to the current set of parameters and perform a few steps of standard gradient descent over the cross entropy classification loss. Then we can backpropagate through that whole optimization to take one step of gradient descent over the initialization parameters to find a 'good' initialization with which we can get good performance after few steps of gradient descent on all train/test datasets.
 
 ![Representation Space](/images/2019/metalearning/rep3.png "Representation space")
 
 A big issue with MAML is that it is computationally expensive as it requires the calculation of second derivatives, and numerous approximations have been proposed to alleviate this. Recent work \[[Raghu19](http://arxiv.org/abs/1909.09157)\] has shown that even for full MAML the 'inner' optimization loop (the few steps of vanilla gradient descent on the support set) are doing little more than changing the weights of the final classification head. The authors thus propose replacing the MAML update with fine-tuning of the final classification layer, which brings us back to the fixed representation extractor paradigm.
+
+### Fine-tuned classification head
 
 ![Representation Space](/images/2019/metalearning/rep6.png "Representation space")
 
@@ -76,7 +85,8 @@ In our recent work \[[Ramalho19](https://arxiv.org/abs/1910.01319)\] we investig
 - Bigger models with better classification performance on ImageNet do perform better for few-shot classification when the tasks are not too out-of-domain (i.e. natural images, object classification tasks). If the tasks are more fine-grained, performance suffers but classification models still do well. For totally out-of-domain datasets, their performance tanks.
 Below you can see average accuracy for EfficientNetB7 for each dataset. Fine grained classification tasks such as `cars`, `planes`, `funghi`, and `svhn` all could use serious improvement.
 
-![Average accuracy](/images/2019/metalearning/avg-acc.png "Average accuracy")
+<img src="/images/2019/metalearning/avg-acc.png" alt="Average accuracy"
+title="Average accuracy" height="400px" />
 
 - Unsupervised models' representations aren't really better even when considering cross-domain transfer. We'd hoped that these models' representation spaces would be less overfit to the ImageNet classification task and therefore transfer better, but that does not seem to be the case.
 
@@ -84,7 +94,8 @@ Below you can see average accuracy for EfficientNetB7 for each dataset. Fine gra
 
 - Prototype networks work for the backbones we tested. And best if we choose cosine distance instead of euclidean (models originally trained with a softmax classification objective try to maximize the dot product between the vector corresponding to a specific class and the representation of the current point, which induces a specific geometry in representation space better captured by cosine distance). Below I plotted the average accuracy over all datasets and all backbones for 5 shots classification. You can see that Prototype Networks is slightly better than Matching Networks for all distance functions, and cosine distance is better than L2 and dot product.
 
-![Average accuracy](/images/2019/metalearning/avg-acc-method.png "Average accuracy")
+<img src="/images/2019/metalearning/avg-acc-method.png" alt="Average accuracy"
+title="Average accuracy" height="400px" />
 
 - For 10 samples and above, just finetune the classification layer instead of using few-shot classification methods! You can see a summary of the accuracy as a function of number of shots below comparing Prototype Networks with Logistic Regression with SGD on the last layer (for the EfficientNetB7 backbone).
 
