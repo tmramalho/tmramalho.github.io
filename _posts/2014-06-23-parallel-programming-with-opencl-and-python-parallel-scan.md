@@ -4,6 +4,7 @@ title: 'Parallel programming with opencl and python: parallel scan'
 date: 2014-06-23T03:14:59+00:00
 author: Tiago Ramalho
 layout: post
+visual: /images/2014/06/bl2.png
 guid: http://www.nehalemlabs.net/prototype/?p=824
 permalink: /blog/2014/06/23/parallel-programming-with-opencl-and-python-parallel-scan/
 dsq_thread_id:

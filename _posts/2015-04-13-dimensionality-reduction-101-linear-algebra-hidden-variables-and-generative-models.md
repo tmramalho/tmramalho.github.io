@@ -4,6 +4,7 @@ title: 'Dimensionality reduction 101: linear algebra, hidden variables and gener
 date: 2015-04-13T03:14:13+00:00
 author: Tiago Ramalho
 layout: post
+visual: /images/2015/04/digits_PCA-1024x633.png
 guid: http://www.nehalemlabs.net/prototype/?p=918
 permalink: /blog/2015/04/13/dimensionality-reduction-101-linear-algebra-hidden-variables-and-generative-models/
 categories:

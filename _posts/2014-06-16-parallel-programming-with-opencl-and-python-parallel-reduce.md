@@ -4,6 +4,7 @@ title: 'Parallel programming with opencl and python: parallel reduce'
 date: 2014-06-16T03:14:57+00:00
 author: Tiago Ramalho
 layout: post
+visual: /images/2014/06/reduction.png
 guid: http://www.nehalemlabs.net/prototype/?p=810
 permalink: /blog/2014/06/16/parallel-programming-with-opencl-and-python-parallel-reduce/
 dsq_thread_id:

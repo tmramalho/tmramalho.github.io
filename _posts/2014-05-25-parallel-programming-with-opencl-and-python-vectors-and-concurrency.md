@@ -34,7 +34,7 @@ Let's look at the vector instructions first.
 Let's say you need to add a bunch of floating point numbers.
 You could have each core add one number at a time, but in reality you can do better.
 Each processing core can actually perform that addition on multiple numbers at a time (currently it is common to process the equivalent of 4 floats at a time, or a 128 bit vector).
-You can determine the maximum size of a vector for each type by accessing the CL_DEVICE_PREFERRED_VECTOR_WIDTH_<type> [property](http://documen.tician.de/pyopencl/runtime.html) for a device.
+You can determine the maximum size of a vector for each type by accessing the CL_DEVICE_PREFERRED_VECTOR_WIDTH_  [property](http://documen.tician.de/pyopencl/runtime.html) for a device.
 
 To take advantage of this feature, openCL defines types such as float4, int2 etc with overloaded math operations.
 Let's take a look at a map operation implementing vectors:

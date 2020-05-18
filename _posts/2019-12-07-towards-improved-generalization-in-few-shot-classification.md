@@ -4,6 +4,7 @@ title: 'Towards improved generalization in few-shot classification'
 date: 2019-12-07T03:14:13+00:00
 author: Tiago Ramalho
 layout: post
+visual: /images/2019/metalearning/few-shot.png
 categories:
   - Science
 tags:

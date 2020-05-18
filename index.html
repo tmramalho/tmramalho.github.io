@@ -5,12 +5,14 @@ title: Home
 
 <div class="posts">
   {% for post in paginator.posts %}
-  <div class="card-main" style="background-image: url('{{ post.image | prepend: site.baseurl }}');">
+  <div class="card-main">
     <a class="card-title" href="{{ site.baseurl }}{{ post.url }}">
         {{ post.title }}
       </a>
     <span class="card-date"> {{ post.date | date: "%b %Y" }} by {{ post.author }}</span>
-
+    {% if post.visual %}
+      <img class="card-visual" src="{{ post.visual }}"></img>
+    {% endif %}
     <span class="card-snippet">{{ post.content | strip_html | truncatewords: 50 }}</span>
   </div>
   {% endfor %}
