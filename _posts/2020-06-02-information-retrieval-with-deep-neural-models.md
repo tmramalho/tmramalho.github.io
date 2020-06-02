@@ -1,3 +1,4 @@
+---
 id: 920
 title: 'Information Retrieval with Deep Neural Models'
 date: 2020-06-02T03:14:13+00:00
@@ -127,4 +128,4 @@ Overall I am excited to see where this field of research goes in the coming year
 
 When I started looking into information retrieval I thought this was a largely solved problem (we have google, don't we?). But it turns out that queries can be made arbitrarily complex, allowing us to test models' generalisation abilities and common sense priors as far as we want. It's a challenging application of progress in NLP modelling and exciting times to follow the literature!
 
-Questions? Reach out to me on twitter @tmramalho.
+Questions? Reach out to me on twitter [@tmramalho](https://twitter.com/tmramalho).
