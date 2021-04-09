@@ -5,13 +5,17 @@ permalink:           pretty
 title:               Tiago Ramalho
 tagline:             'AI research in Tokyo'
 description:         >- # this means to ignore newlines until "baseurl:"
-                      I am currently a Research Scientist at Cogent Labs.
-                      Previously a Research Engineer at DeepMind.
+                      Building AI for sustainability at <a href="https://recursiveai.co.jp/en">Recursive</a>.
+                      I used to be a Research Engineering Manager at Google Deepmind, and a
+                      Research Scientist at Cogent Labs.
+                      I love to cook and go on long hikes. Currently based in Tokyo.
+
 url:                 'https://tmramalho.github.io'
 baseurl:             ''
 paginate:            5
 twitter_username: tmramalho
 github_username:  tmramalho
+linkedin_username: tiago-ramalho-526140b3
 
 # About/contact
 author:

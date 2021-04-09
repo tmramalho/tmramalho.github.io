@@ -4,6 +4,8 @@ title: Projects
 permalink: /projects/
 ---
 
+Old projects I did when I was in school / uni. Just keeping these around for nostalgia's sake :)
+
 ## Rays
 Rays is a visual generative art application. The user can draw beautiful patterns by guiding the small particles attached to the cursor with springs. I have used it as a toy model to test new frameworks or programming languages. Enjoy!
 
